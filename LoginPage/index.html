@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assigment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body{
+            background-color: #E2E7E1;
+        }
+        /* Basic styling for the navbar */
+.navbar {
+  width: 100%;
+  height: 60px;
+  background-color: #F0F3F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border-top-left-radius: 20px; /* Match fieldset border radius */
+  border-top-right-radius: 20px; /* Match fieldset border radius */
+}
+.field{
+    height: 650px;
+    width: 1100px;
+    margin-left: 190px;
+    /* margin-right: 60px; */
+    margin-top: 40px;
+    margin-bottom: 40px;
+    position: relative;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 0;
+    border: 0;
+}
+.rectangle {
+            width: 500px; /* Set width for the rectangle */
+            height: 25px; /* Set height for the rectangle */
+            background-color: #F9F9F9; /* Color of the rectangle */
+            border-radius: 5px; /* Optional: round the corners */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10px;
+            margin: auto;
+        }
+        .rectangle i {
+            margin-right: 5px;
+            color: #949494;
+        }
+        .circle{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
+        .circle1{
+            background-color: #FE4842;
+        }
+        .circle2{
+            background-color: #FCAB20;
+        }
+        .circle3{
+            background-color: #1DB92D;
+        }
+.circles-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    left: 50px;
+    /* padding-right: 700px; */
+}
+.moving-logo img{
+    position: absolute; /* Allows you to move it freely */
+    top: 20px; /* Initial vertical position */
+    left: 20px; /* Initial horizontal position */
+    width: 60px; /* Adjust width as needed */
+    transition: all 0.5s ease; /* Optional: Add transition for smooth movement */
+    height: 60px;
+    margin-top: 80px;
+    margin-left: 40px;
+}
+/* @keyframes move-logo {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(100px, 100px); }
+    100% { transform: translate(0, 0); }
+}
+.moving-logo {
+    animation: move-logo 5s infinite; 
+} */
+.main-heading{
+    margin-top: 150px;
+    margin-left: 190px;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+.top-text{
+    margin-left: 260px;
+    padding-top: 48px;
+    position: absolute;
+}
+#top-button{
+    margin-left: 5px;
+    width: 100px;
+    height: 35px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 1px solid #ccc;
+    font-weight: 550;
+    background-color: white;
+    color: #57853F;
+}
+.moving-text {
+            position: absolute;
+            top: 100px; /* Align with logo's initial position */
+            left: 130px; /* Adjust to stay in front of logo */
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            font-size: large;
+        }
+        .moving-text1{
+            position: absolute;
+            top: 125px; /* Align with logo's initial position */
+            left: 130px; /* Adjust to stay in front of logo */
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+        .small-text{
+            font-size: small;
+            margin-left: 170px;
+            font-weight: lighter;
+        }
+        .input1{
+            margin-left: 135px;
+            margin-top: 20px;
+        }
+        .input2{
+            margin-left: 135px;
+            margin-top: 20px;
+        }
+        #inp1{
+            width: 300px;
+            height: 38px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #inp2{
+            width: 300px;
+            height: 38px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        /* Hide the default checkbox */
+.checkbox {
+    display: none;
+}
+
+/* Style the label to act as the custom checkbox */
+.check {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    margin-left: 135px;
+    margin-top: 20px;
+}
+
+/* Create the circular custom checkbox */
+.custom-checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border-radius: 30%; /* Circular checkbox */
+    border: 1px solid #ccc;
+    transition: background-color 0.3s ease;
+    margin-top: 405px;
+    margin-left: 135px;
+}
+
+/* Add the right tick when checked */
+.checkbox:checked + .custom-checkbox::after {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 4px;
+    width: 7px;
+    height: 15px;
+    border: solid #4CAF50;
+    border-width: 0 3px 3px 0;
+    transform: rotate(37deg);
+    transition: border-color 0.3s ease;
+    border-radius: 5%;
+}
+
+/* Change background color when checked */
+.checkbox:checked + .custom-checkbox {
+    /* background-color: #4CAF50; */
+    border-color: #4CAF50;
+}
+
+.label-text{
+    margin-left: 180px;
+    align-self: flex-end;
+    padding-top: 25px;
+}
+.login{
+    margin-left: 135px;
+    width: 300px;
+    height: 35px;
+    margin-top: 30px;
+    /* border-radius: 10px; */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 1px solid #ccc;
+    background-color: #CFD1D0;
+    text-align: center;
+}
+#login-footer{
+    margin-left: 180px;
+    margin-top: 20px;
+    font-size: small;
+    color: #6D8457;
+}
+#footer2{
+    margin-left: 300px;
+    margin-bottom: 100px;
+    font-size: small;
+    color: #6D8457;
+    position: relative;
+    top: -15px;
+}
+ #foot1{
+    margin-left: 200px;
+    position: absolute;
+    bottom: 40px;
+    font-size: small;
+}
+
+#foot2{
+    margin-left: 340px;
+    position: absolute;
+    bottom: 40px;
+    font-size: small;
+}
+    </style>
+</head>
+<body>
+    <div>
+        <form action="">
+            <div>
+                <fieldset class="field">
+                    <div>
+                        <nav class="navbar">
+                            <div class="circles-container">
+                                <div class="circle circle1"></div>
+                                <div class="circle circle2"></div>
+                                <div class="circle circle3"></div>
+                            </div>
+                            <div class="rectangle">
+                                <i class="fas fa-lock"></i>
+                                <span>mymortgage.regionsmortgage.com</span>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="moving-logo">
+                        <img src="https://www.usnews.com/dims4/USNEWS/2376b4f/2147483647/thumbnail/300x300/quality/85/?url=https%3A%2F%2Fwww.usnews.com%2Fcmsmedia%2Fab%2F7c%2Ffdc319d4463ba01eb2b1da9a2b62%2F190115-regionslogo-submitted.jpg" alt="Company Logo">
+                    </div>
+                    <div class="moving-text">
+                        Regions
+                    </div>
+                    <div class="moving-text1">
+                        Mortgage
+                    </div>
+                    <div class="top-text">
+                        Are you a new customer?
+                        <button id="top-button">Enroll Now</button>
+                    </div>
+                    <div class="main-heading">
+                        Welcome Back
+                    </div>
+                    <div class="small-text">
+                        Sign in to your Regions MyMortgage account
+                    </div>
+                    <div class="input1">
+                        <input type="text" id="inp1">
+                    </div>
+                    <div class="input2">
+                        <input type="text" id="inp2">
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" class="checkbox">
+                            <span class="custom-checkbox"></span>
+                        </label>
+                        <div class="label-text">Remember me</div>
+                    </div>
+                    <div>
+                        <input type="text" placeholder="Login" class="login">
+                    </div>
+                    <div id="login-footer">
+                        Forgot Online Id?
+                    </div>
+                    <div id="footer2">
+                        Forgot Password?
+                    </div>
+                    <div>
+                        im
+                    </div>
+                    <div id="foot1">
+                        Equal housing Lender
+                    </div>
+                    <div id="foot2">
+                        Member FDIC
+                    </div>
+                </fieldset>
+            </div>
+        </form>
+    </div>
+    <!-- <script>
+        const logo = document.querySelector('.moving-logo');
+        let positionX = 20; // Initial position
+        let positionY = 20;
+    
+        setInterval(() => {
+            positionX += 5; // Change value for speed
+            positionY += 3; // Change value for speed
+            logo.style.left = positionX + 'px';
+            logo.style.top = positionY + 'px';
+    
+            // Reset position when it goes out of bounds
+            if (positionX > window.innerWidth || positionY > window.innerHeight) {
+                positionX = 20;
+                positionY = 20;
+            }
+        }, 100); // Adjust interval for speed
+    </script> -->
+</body>
+</html>

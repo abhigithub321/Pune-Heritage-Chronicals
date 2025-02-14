@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pune Heritage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <style>
+        body, html {
+    overflow-x: hidden;
+}
+.navbar {
+    background-color: #f8f9fa; /* Light background color */
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #007bff; /* Customize brand color */
+}
+
+.nav-link {
+    color: #495057; /* Link color */
+}
+
+.nav-link:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+.dropdown-menu {
+    background-color: #f8f9fa; /* Dropdown background color */
+}
+
+.dropdown-item:hover {
+    background-color: #e2e6ea; /* Dropdown item hover color */
+}
+
+.form-control {
+    border-radius: 20px;  /*Rounded corners for search input  */
+}
+.btn-outline-success {
+     border-radius: 200px;  /*Rounded corners for button  */
+}
+.image-container {
+    border-radius: 200px;
+}
+.image-rounded{
+    border-radius: 15px;
+}
+.image-container {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    text-align: center;
+}
+.image-shadow {
+    max-width: 50%; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 20px; /* Space between image and text */
+    margin-left: 20px;
+}
+.text {
+    max-width: 800%;   
+    max-height: 120%;
+}
+.image1 {
+    display: flex;
+    justify-content: center; /* Center images horizontally */
+    margin: 20px; /* Margin for the entire div */
+    text-align: center;
+}
+
+.image1 img {
+    width: 250px; /* Set a consistent width for all images */
+    height: 150px; /* Set a consistent height for all images */
+    object-fit: cover; /* Ensures images are scaled properly */
+    border-radius: 10px; /* Optional: Rounds the corners of the images */
+    margin: 0 20px; /* Adds horizontal margin between images */
+}
+
+.btn.btn-secondary.btn-lg {
+    margin-top: 15px; /* Space between the image and the button */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: darkgoldenrod;
+}
+#img1{
+    margin-right: 20px;
+}
+.place-list, .place-info {
+    margin-left: 40px;
+}
+#foot1{
+    margin-top: 10px;
+}
+#tex1{
+    text-align: left;
+    text-align: justify;
+    margin-right: 10px;
+}
+.carousel{
+  width: 45%; /* Set to 100% width for responsive carousel */
+}
+
+.custom-img {
+  height: 400px; /* Custom height */
+  object-fit: cover; /* Ensures the image scales while maintaining its aspect ratio */
+  width: 100%; /* Ensures the image takes up the full width of the carousel */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgb(23, 207, 201); /* Custom color for the control icons */
+  border-radius: 50%;
+  padding-left: 20px;
+}
+/* .d-block.w-100{
+    height: 420px;
+    width: 500px;
+} */
+.d-block.w-100{
+    /* border-radius: 20px; */
+    margin-left: 0px;
+    /* object-fit: contain; */
+    width: 100%;
+    height: 450px; 
+    display: flex;
+    /* justify-content: center;  */
+    align-items:center; 
+    overflow: hidden;
+    padding-top: 10px;
+    padding-right: 60px; 
+    padding-left: 10px;
+}
+.carousel-container {
+  display: flex;
+}
+
+.carousel {
+  flex: 1; /* Adjusts the size of the carousel */
+}
+
+.text {
+  flex: 1; /* Adjusts the size of the text area */
+  padding: 20px; /* Optional: adds some spacing around the text */
+}
+/* .position-relative {
+    position: relative; 
+} */
+
+.text-overlay {
+    position: absolute; /* Position text over carousel */
+    top: 20px; 
+    /* left: 20px; */
+    right: 10px; 
+    z-index: 10; /* Ensure the text is on top of the carousel */
+    color: white; /* Adjust text color for visibility */
+    background-color: #EFEFEF; /* Optional: Add semi-transparent background for better readability */
+    /* padding: 5px; */
+    border-radius: 10px;
+    width: 750px;
+}
+.new-banner-style{
+    top: 0;
+    padding-top: 3px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.custom-navbar{
+    background-color: #242648;
+}
+.custom-navbar .navbar-brand, .custom-navbar .nav-link, .custom-navbar .form-control {
+    color: white; /* Ensure text contrasts with background */
+  }
+.banner-heading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-90%, -50%);
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+.banner-heading h2 {
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  }
+  .card-img-top {
+    width: 100%; /* Make images responsive */
+    height: 200px; /* Fixed height */
+    object-fit: cover; /* Crop images to fit */
+        }
+.card {
+    margin: 15px; /* Increase distance between cards */
+    display: flex;
+    flex-direction: column; /* Aligns children vertically */
+    height: 90%; 
+}
+.card-body{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+</style>
+</head>
+<body>
+      <nav class="navbar navbar-expand-lg custom-navbar" style="height: 70px;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" style="color: #007bff;">Pune Heritage</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" style="color:white;">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#history">History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#landmarks">Landmarks</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#culture">Culture</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#events">Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#gallery">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#blog">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact Us</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search" style="padding-right: 100px;">
+              <button type="button" class="btn btn-primary btn-lg" style="padding-right: 15px; height: 50px; background-color: #FDDB1C; height: 45px;">Book A Hotel</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <!-- Banner Start -->
+      <div class="container-fluid p-0">
+        <img src="https://media2.thrillophilia.com/images/photos/000/181/355/original/1574514544_vishrambaug-wada-Pune-1024x512.jpg?w=753&h=450&dpr=1.5" class="new-banner-style" alt="Banner" style="height: 400px; object-fit: cover;">
+        <div class="banner-heading">
+            <div class="post-date">Last Updated: 25-Sep-2024</div>
+            <h2>Best Historical Places in Pune with Location, Timings 2024</h2>
+        </div>
+        </div>   
+      <!-- Banner end --> 
+      <br>
+      <br>
+      <!--slidshow start-->
+      <div class="container">
+        <div class="row position-relative"> <!-- Added position-relative to the row -->
+            <div class="col-md-12">
+                <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="500">
+                    <!-- <ol class="carousel-indicators">
+                        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+                        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+                        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+                    </ol> -->
+                    <div class="carousel-inner" >
+                        <div class="carousel-item active">
+                            <div class="img-wrapper">
+                                <img class="d-block w-100" src="Shaniwaarwada_Pune_11zon.jpg" alt="First slide">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="img-wrapper">
+                                <img class="d-block w-100" src="https://www.citybit.in/wp-content/uploads/2024/07/Raigad-Fort-Photos.jpg" alt="Second slide">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="img-wrapper">
+                                <img class="d-block w-100" src="https://punetourism.co.in/images/places-to-visit/headers/sinhagad-fort-pune-tourism-entry-fee-timings-holidays-reviews-header.jpg" alt="Third slide">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Text Overlay -->
+            <div class="col-md-12 text-overlay"> 
+                <div class="text">
+                    <p dir="ltr" id="tex1" style="color: black;"> 
+                        Pune, often called the "Oxford of the East," is a vibrant city in Maharashtra, India, known for its rich history and cultural diversity. Once the capital of the Maratha Empire, it boasts landmarks like the Aga Khan Palace and Shaniwar Wada, reflecting its royal past. Pune is a major educational hub, home to renowned institutions like Pune University and IISER, and has a growing economy driven by IT, manufacturing, and startups. With a moderate climate, ample green spaces, and a lively cultural scene, including festivals and events, Pune offers a unique blend of tradition and modernity, making it an attractive destination for both residents and visitors. Pune, situated in the western Indian state of Maharashtra, is a city that beautifully balances its rich historical heritage with rapid modern development. Known as the cultural capital of the state, it was once the political seat of the Maratha Empire under the leadership of Chhatrapati Shivaji Maharaj, a legacy that continues to shape its identity. The city is home to several iconic landmarks such as Shaniwar Wada, Aga Khan Palace, and the Pataleshwar Cave Temple, which are reminders of its significant role in India's history. Pune's pleasant climate and lush green hills make it a popular destination for nature lovers and trekkers, with nearby getaways like Lonavala, Khandala, and Mahabaleshwar offering scenic retreats.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- slideshow end -->
+    <br>
+      <br> 
+      <!-- <div class="image1">
+        <div>
+            <img src="https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/2018/02/23131716/23022018_Malhargadfort_01.jpg?fm=webp&w=750&h=500&dpr=1" alt="" id="img1">
+            <button type="button" class="btn btn-secondary btn-lg" onclick="showPlaces('forts')">Forts</button>
+        </div>
+        <div>
+            <img src="https://www.iskconpune.com/wp-content/uploads/2023/02/Screenshot_20230215-151312_Maps.jpg" alt="">
+            <button type="button" class="btn btn-secondary btn-lg" onclick="showPlaces('temples')">Temples</button>
+        </div>
+        <div>
+            <img src="https://blog.weekendthrill.com/wp-content/uploads/2016/05/ADVENTURE-768x556.jpg" alt="">
+            <button type="button" class="btn btn-secondary btn-lg" onclick="showPlaces('adventure')">Adventure</button>
+        </div>
+        <div>
+            <img src="https://static2.tripoto.com/media/filter/nl/img/1/SpotDocument/1518755809_1518605602_800px_matheran_hill_view.jpg.webp" alt="">
+            <button type="button" class="btn btn-secondary btn-lg" onclick="showPlaces('natural')">Natural Destinations</button>
+        </div>
+      </div> -->
+      <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="https://imgstaticcontent.lbb.in/lbbnew/wp-content/uploads/2018/02/23131716/23022018_Malhargadfort_01.jpg?fm=webp&w=750&h=500&dpr=1  " alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Forts</h5>
+                        <p class="card-text">"Explore the rich history and stunning architecture of ancient forts. Discover tales of bravery and valor as you wander through the majestic walls and scenic landscapes."</p>
+                        <a href="Forts.html" class="btn btn-primary go-somewhere" data-target="Forts.html">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="https://www.iskconpune.com/wp-content/uploads/2023/02/Screenshot_20230215-151312_Maps.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Temples</h5>
+                        <p class="card-text">"Immerse yourself in spiritual tranquility at these breathtaking temples. Marvel at the intricate carvings and serene surroundings, perfect for reflection and peace."</p>
+                        <a href="Temples.html" class="btn btn-primary go-somewhere" data-target="Temples.html">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="https://blog.weekendthrill.com/wp-content/uploads/2016/05/ADVENTURE-768x556.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Adventure</h5>
+                        <p class="card-text">"Get ready for an adrenaline rush! Whether it’s trekking through rugged mountains, white-water rafting, or zip-lining through lush forests, every adventure is waiting for you!"</p>
+                        <a href="Adventure.html" class="btn btn-primary go-somewhere" data-target="Adventure.html">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="https://static2.tripoto.com/media/filter/nl/img/1/SpotDocument/1518755809_1518605602_800px_matheran_hill_view.jpg.webp" alt="Card image cap" style="height: 225px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Natural Destinations</h5>
+                        <p class="card-text">"Reconnect with nature in stunning landscapes. From serene lakes and towering mountains to lush valleys, these natural wonders offer the perfect escape from the hustle and bustle of daily life."</p>
+                        <a href="Natural.html" class="btn btn-primary go-somewhere" data-target="Natural.html">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- List of places -->
+    <div id="places" class="place-list">
+        <h3>Places:</h3>
+        <ul id="placeList"></ul>
+    </div>
+
+    <!-- Detailed information about the place -->
+    <div id="placeInfo" class="place-info">
+        <h3>Place Information:</h3>
+        <p id="placeDetails"></p>
+    </div>
+
+    <script>
+        // Example data for places and details
+        const heritageData = {
+            forts: [
+                { name: "Shaniwar Wada", info: "Shaniwar Wada is a historic fortification located in Pune, Maharashtra, India, built in 1732 by the Peshwas of the Maratha Empire. It served as the seat of the Peshwas until 1818, when the British East India Company took over the region. The palace, known for its grand architecture and intricate design, included features such as large gates, audience halls, fountains, and lush gardens. However, much of the fort was destroyed in a fire in 1828, leaving only its stone walls and foundations intact. Today, Shaniwar Wada is a popular tourist destination, known for its historical significance and haunting legends." },
+                { name: "Sinhagad Fort", info: "Sinhagad Fort, located about 35 kilometers southwest of Pune, Maharashtra, is a historic hill fortress with a rich past dating back over a thousand years. It has witnessed many significant battles, most notably the Battle of Sinhagad in 1670, where the Maratha warrior Tanaji Malusare fought valiantly under Chhatrapati Shivaji Maharaj's command to recapture the fort from the Mughals. Perched atop a steep cliff, the fort offers stunning views of the surrounding Sahyadri mountain range and has several points of interest, including memorials, ancient temples, and a strategically important entrance gate. Sinhagad remains a popular trekking and tourist destination today, symbolizing bravery and sacrifice." },
+                { name: "Torna Fort", info: "Torna Fort, also known as Prachandagad, is situated about 50 kilometers southwest of Pune. It was the first fort captured by Chhatrapati Shivaji Maharaj in 1643 and offers breathtaking views of the Sahyadri mountains,marking the beginning of his military career. Situated at an elevation of around 1,403 meters, the fort offers breathtaking views of the surrounding landscape, including the Sahyadri mountain range and the valleys below.The trek to Torna Fort is moderately challenging, making it a popular destination for trekkers and adventure enthusiasts. Along the way, visitors can explore the remnants of the fort's structures, including stone walls, bastions, and water cisterns. The area is especially beautiful during the monsoon season when the hills are lush and vibrant. Torna Fort is not only a site of historical importance but also a great spot for nature lovers looking to enjoy scenic vistas and outdoor activities." },
+                { name: "Rajgad Fort", info: "Rajgad Fort, located around 60 kilometers from Pune,Maharashtra. It served as the capital of the Maratha Empire under Chhatrapati Shivaji Maharaj for nearly 26 years and is renowned for its strategic importance and impressive architecture. The fort is set atop a hill at an elevation of around 1,400 meters and offers stunning panoramic views of the surrounding landscape, including the Sahyadri mountain range. The trek to Rajgad is moderately challenging, making it a favorite among trekkers and history enthusiasts. Key features of the fort include the extensive stone walls, temples, and water cisterns. Rajgad Fort is not only a site of historical significance but also a popular destination for nature lovers, especially during the monsoon season when the greenery is at its peak." }
+            ],
+            temples: [
+                { name: "Dagadusheth Halwai Temple", info: "The Dagadusheth Halwai Ganapati Temple is a famous Hindu temple located in Pune, Maharashtra, dedicated to Lord Ganesha. Established over 125 years ago by a renowned sweet maker, Dagadusheth Halwai, the temple holds great religious and cultural significance in the city. The temple's idol of Lord Ganesha is known for its grandeur, standing over 7 feet tall and adorned with gold and jewels. It attracts thousands of devotees, especially during the Ganesh Chaturthi festival, when elaborate celebrations take place. The temple is also involved in various charitable activities, reflecting its importance as both a spiritual and community center in Pune." },
+                { name: "Parvati Temple", info: "The Parvati Temple, located in Pune, Maharashtra, is one of the oldest and most revered temples in the region. Situated atop Parvati Hill, it dates back to the 18th century and is dedicated to Goddess Parvati, the consort of Lord Shiva. The temple complex consists of several smaller shrines, with the main temple featuring beautiful architecture and intricate carvings. Visitors must climb a flight of about 103 steps to reach the temple, which offers panoramic views of Pune and its surroundings. The area is also known for its serene atmosphere and lush greenery, making it a popular spot for both devotees and tourists. Parvati Hill is a significant cultural and historical site, with the temple serving as a testament to the region's rich heritage." },
+                { name: "Chaturshringi Temple", info: "Chaturshringi Temple is a prominent Hindu temple located in Pune, Maharashtra, dedicated to Goddess Chaturshringi, an incarnation of Goddess Durga. Nestled on a hilltop in the Sahyadri range, the temple is known for its stunning architecture and serene surroundings. It features a beautifully adorned idol of the goddess and is surrounded by lush greenery, attracting both devotees and tourists.The temple dates back to the 19th century and is an important pilgrimage site, especially during festivals like Navratri when thousands of devotees visit to offer prayers. The trek to the temple involves climbing several steps, offering visitors picturesque views of Pune and its landscape along the way. Chaturshringi Temple is not only a spiritual center but also a popular spot for those seeking tranquility and a connection with nature." },
+                { name: "Khandoba Temple", info: "Khandoba Temple, located in the town of Jejuri near Pune, is dedicated to Lord Khandoba, a form of Lord Shiva, a deity worshipped as the god of war and agriculture.It is famous for its unique yellow powder (turmeric) offerings. The temple is famous for its unique architecture and vibrant festivals, particularly the Makar Sankranti festival, which attracts thousands of devotees. Perched on a hill, the temple complex features an impressive entrance and a sacred well, and it is adorned with intricate carvings and sculptures. The idol of Khandoba is usually depicted riding a horse and is flanked by his two wives, Mhalsai and Banai. The temple is not only a spiritual center but also a cultural hub, reflecting the rich traditions and folklore of the region. Visitors often enjoy the panoramic views of the surrounding landscape from the temple, adding to the overall experience of this revered site." }
+            ],
+            adventure: [
+                { name: "Raireshwar Trek", info: "Raireshwar Trek is a popular trekking destination located in the Sahyadri mountain range of Maharashtra, India. This trek is renowned for its scenic beauty, lush greenery, and historical significance, as it leads to the Raireshwar Fort, which was a key site during the Maratha Empire. The trek typically starts from the village of Raireshwar and offers a moderately challenging route, making it suitable for both novice and experienced trekkers. Along the way, trekkers can enjoy stunning views of the surrounding valleys, waterfalls, and diverse flora and fauna. The fort itself features ancient stone structures and provides panoramic views from the top, making it a rewarding experience for nature enthusiasts and history buffs alike." },
+                { name: "Rajmachi Fort Trek", info: "Rajmachi Fort Trek is a popular trekking route located approximately 15 kilometers from Lonavala and about 70 kilometers from Pune, Maharashtra. The trek takes you to the historic Rajmachi Fort, which consists of two fortifications—Shrivardhan Fort and Manaranjan Fort. The trek is known for its beautiful scenery, including lush green hills, waterfalls, and panoramic views of the Sahyadri mountain range, especially during the monsoon season. The trail is moderate in difficulty, making it accessible for both beginners and experienced trekkers. Along the way, trekkers can explore ancient structures, remnants of the fort, and enjoy the vibrant natural surroundings, making it a favorite among adventure enthusiasts and nature lovers." },
+                { name: "Bhira Dam Kayaking", info: "Bhira Dam, located near Pune, offers a thrilling kayaking experience surrounded by stunning landscapes and serene waters, making it perfect for adventure enthusiasts." },
+                { name: "Mulshi Lake Camping", info: "Camping at Mulshi Lake offers a chance to experience the serene beauty of the Western Ghats, with opportunities for water sports, trekking, and enjoying nature." }
+            ],
+            natural: [
+                { name: "Mulshi Lake", info: "Mulshi Lake is a picturesque reservoir located in the Mulshi Taluka of Pune district, Maharashtra, approximately 40 kilometers from Pune. Nestled amidst the Western Ghats, the lake was formed by the damming of the Mulshi River and is known for its serene beauty, lush green hills, and rich biodiversity. It is a popular destination for picnics, nature walks, and photography, attracting visitors looking to escape the city's hustle and bustle. The area around the lake is also known for its vibrant flora and fauna, making it a great spot for birdwatching and nature enthusiasts. Additionally, the scenic views of the surrounding hills and the tranquil waters create a perfect backdrop for relaxation and outdoor activities, including trekking and camping." },
+                { name: "Lonavala", info: "Lonavala is a charming hill station located in the Western Ghats of Maharashtra, approximately 65 kilometers from Pune and 90 kilometers from Mumbai. Known for its pleasant climate, lush greenery, and breathtaking landscapes, Lonavala is a popular getaway for tourists and locals alike. The region is famous for its scenic viewpoints, such as Tiger's Leap and Bhushi Dam, as well as its beautiful waterfalls, especially during the monsoon season. Lonavala is also known for its delicious chikki (a type of sweet made from jaggery and nuts) and has several trekking trails that attract adventure enthusiasts. The hill station offers a mix of natural beauty, historical sites, and modern amenities, making it an ideal destination for relaxation and exploration." },
+                { name: "Panshet Dam", info: "Panshet Dam, located around 40 kilometers from Pune, is an ideal spot for water sports and picnics, surrounded by lush greenery and scenic views." },
+                { name: "Tamhini Waterfalls", info: "Tamhini Waterfalls are a collection of stunning waterfalls located in the Tamhini Ghat region, about 60 kilometers from Pune, especially spectacular during the monsoon season." }
+            ]
+        };
+
+        // Function to show places based on category
+        function showPlaces(category) {
+            const placeList = document.getElementById('placeList');
+            placeList.innerHTML = ''; // Clear previous list
+            const places = heritageData[category];
+
+            places.forEach(place => {
+                const listItem = document.createElement('li');
+                listItem.textContent = place.name;
+                listItem.style.cursor = "pointer";
+                listItem.onclick = () => showPlaceDetails(place);
+                placeList.appendChild(listItem);
+            });
+
+            document.getElementById('places').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('places').style.display = 'block';
+            document.getElementById('placeInfo').style.display = 'none'; // Hide previous info
+        }
+        // Function to show places based on places
+        function showPlaceDetails(place) {
+            // Set the place's detailed information
+            document.getElementById('placeDetails').textContent = place.info;
+
+            // Display the place information section
+            const placeInfoDiv = document.getElementById('placeInfo');
+            document.getElementById('placeInfo').style.display = 'block';
+
+            // Scroll to the place details section for better user experience
+            document.getElementById('placeInfo').scrollIntoView({ behavior: 'smooth' });
+
+            // Add the alert classes to the place info div
+            placeInfoDiv.classList.add('alert', 'alert-info');
+        
+        }
+        document.querySelectorAll('.go-somewhere').forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default link behavior
+                const targetPage = this.getAttribute('data-target'); // Get the target page from data attribute
+                window.location.href = targetPage; // Redirect to the target page
+            });
+        });
+    </script>  
+
+<footer class="text-center bg-light text-dark py-4">
+    <div class="container">
+        <p class="mb-0">© 2024 Pune Heritage. All rights reserved.</p>
+        <p id="foot1">
+            <a href="#history" class="text-dark">History</a> | 
+            <a href="#landmarks" class="text-dark">Landmarks</a> | 
+            <a href="#culture" class="text-dark">Culture</a> | 
+            <a href="#events" class="text-dark">Events</a> | 
+            <a href="#gallery" class="text-dark">Gallery</a> | 
+            <a href="#blog" class="text-dark">Blog</a> | 
+            <a href="#contact" class="text-dark">Contact Us</a>
+        </p>
+        <div>
+            <a href="#" class="text-dark mx-2"><i class="fab fa-facebook-f">Facebook</i></a>
+            <a href="#" class="text-dark mx-2"><i class="fab fa-twitter">Twitter</i></a>
+            <a href="#" class="text-dark mx-2"><i class="fab fa-instagram">Instagram</i></a>
+            <a href="#" class="text-dark mx-2"><i class="fab fa-linkedin-in">Linkdin</i></a>
+        </div>
+    </div></footer>
+</body>
+</html>
